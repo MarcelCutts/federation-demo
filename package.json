@@ -1,5 +1,5 @@
 {
-  "name": "federation-demo",
+  "name": "federation-bundle-wasm",
   "main": "gateway.js",
   "scripts": {
     "start-gateway": "nodemon gateway.js",
@@ -8,12 +8,17 @@
     "start-service-products": "nodemon services/products/index.js",
     "start-service-inventory": "nodemon services/inventory/index.js",
     "start-services": "concurrently \"npm:start-service-*\"",
-    "postinstall": "lerna bootstrap"
+    "postinstall": "lerna bootstrap",
+    "build": "webpack"
   },
   "devDependencies": {
+    "concurrently": "latest",
     "lerna": "latest",
     "nodemon": "latest",
-    "concurrently": "latest"
+    "terser-webpack-plugin": "^5.0.0",
+    "webpack": "^5.1.3",
+    "webpack-cli": "^4.1.0",
+    "webpack-node-externals": "^2.5.2"
   },
   "dependencies": {
     "@apollo/gateway": "latest",
